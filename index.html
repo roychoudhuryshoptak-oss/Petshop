@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Pet Nest - Premium Care for Precious Companions. Shop quality pet food, toys, accessories, grooming essentials and more.">
+  <title>The Pet Nest — Premium Care for Precious Companions</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{primary:{50:'#e8f5e9',100:'#c8e6c9',200:'#a5d6a7',300:'#81c784',400:'#66bb6a',500:'#4caf50',600:'#43a047',700:'#2E7D32',800:'#1b5e20',900:'#0d3b12'},golden:{50:'#fef9e7',100:'#fdf0c3',200:'#fbe49a',300:'#f9d871',400:'#F4C542',500:'#e6b317',600:'#c49a0f',700:'#9a780c'},cream:'#FFF9E6'},fontFamily:{heading:['Poppins','sans-serif'],body:['Nunito Sans','sans-serif']},animation:{'float':'float 3s ease-in-out infinite','wiggle':'wiggle 1s ease-in-out infinite','pulse-glow':'pulseGlow 2s ease-in-out infinite','slide-up':'slideUp 0.6s ease-out forwards'},keyframes:{float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}},wiggle:{'0%,100%':{transform:'rotate(-3deg)'},'50%':{transform:'rotate(3deg)'}},pulseGlow:{'0%,100%':{boxShadow:'0 0 5px rgba(46,125,50,0.3)'},'50%':{boxShadow:'0 0 20px rgba(46,125,50,0.6)'}},slideUp:{'0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'}}}}}}
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-800 font-body overflow-x-hidden">
+
+<!-- Coupon Banner -->
+<div id="couponBanner" class="coupon-banner text-white text-center py-2 px-4 text-sm font-semibold relative z-50">
+  🐾 Use code <span class="bg-white text-primary-700 px-2 py-0.5 rounded font-bold mx-1">PETNEST15</span> for 15% off! Free delivery over $50 🚚
+  <button onclick="document.getElementById('couponBanner').style.display='none'" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white"><span class="iconify" data-icon="mdi:close" data-width="18"></span></button>
+</div>
+
+<!-- Nav -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
+    <a href="#home" class="flex items-center gap-2 group"><div class="w-10 h-10 bg-primary-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><span class="iconify text-white" data-icon="mdi:paw" data-width="24"></span></div><div><span class="font-heading font-bold text-xl text-primary-800 leading-none">The Pet Nest</span><span class="block text-[10px] text-primary-600 font-semibold tracking-wider uppercase">Premium Pet Care</span></div></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="#home" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Home</a>
+      <a href="#about" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">About</a>
+      <a href="#shop" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Shop</a>
+      <a href="#services" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Services</a>
+      <a href="#adoption" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Adoption</a>
+      <a href="#gallery" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Gallery</a>
+      <a href="#faq" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">FAQ</a>
+      <a href="#contact" class="nav-link px-3 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 rounded-lg hover:bg-primary-50">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="openSearch()" class="p-2 hover:bg-gray-100 rounded-full"><span class="iconify text-gray-600" data-icon="mdi:magnify" data-width="22"></span></button>
+      <button onclick="openLogin()" class="hidden sm:flex p-2 hover:bg-gray-100 rounded-full"><span class="iconify text-gray-600" data-icon="mdi:account-circle-outline" data-width="22"></span></button>
+      <button onclick="toggleWishBtn()" class="p-2 hover:bg-gray-100 rounded-full relative"><span class="iconify text-gray-600" data-icon="mdi:heart-outline" data-width="22"></span><span id="wishlistCount" class="badge-count absolute -top-0.5 -right-0.5 bg-red-500 text-white rounded-full flex items-center justify-center font-bold hidden">0</span></button>
+      <button onclick="openCart()" class="p-2 hover:bg-gray-100 rounded-full relative"><span class="iconify text-gray-600" data-icon="mdi:cart-outline" data-width="22"></span><span id="cartCount" class="badge-count absolute -top-0.5 -right-0.5 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold hidden">0</span></button>
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 hover:bg-gray-100 rounded-full ml-1"><span class="iconify text-gray-700" data-icon="mdi:menu" data-width="26"></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 z-50 hidden" onclick="toggleMobileMenu()"></div>
+<aside id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 overflow-y-auto shadow-2xl">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-8"><div class="flex items-center gap-2"><div class="w-9 h-9 bg-primary-700 rounded-xl flex items-center justify-center"><span class="iconify text-white" data-icon="mdi:paw" data-width="20"></span></div><span class="font-heading font-bold text-lg text-primary-800">The Pet Nest</span></div><button onclick="toggleMobileMenu()" class="p-2 hover:bg-gray-100 rounded-full"><span class="iconify text-gray-600" data-icon="mdi:close" data-width="24"></span></button></div>
+    <nav class="flex flex-col gap-1">
+      <a href="#home" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:home-outline" data-width="20"></span>Home</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:information-outline" data-width="20"></span>About</a>
+      <a href="#shop" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:store-outline" data-width="20"></span>Shop</a>
+      <a href="#services" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:hand-heart-outline" data-width="20"></span>Services</a>
+      <a href="#adoption" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:dog-side" data-width="20"></span>Adoption</a>
+      <a href="#gallery" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:image-multiple-outline" data-width="20"></span>Gallery</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:help-circle-outline" data-width="20"></span>FAQ</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl font-semibold flex items-center gap-3"><span class="iconify" data-icon="mdi:phone-outline" data-width="20"></span>Contact</a>
+    </nav>
+    <div class="mt-8 pt-6 border-t border-gray-100"><button onclick="openLogin();toggleMobileMenu();" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:account-circle-outline" data-width="20"></span>Login / Sign Up</button></div>
+  </div>
+</aside>
+
+<!-- Search -->
+<div id="searchOverlay" class="search-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center pt-24 px-4" onclick="if(event.target===this)closeSearch()">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden">
+    <div class="flex items-center gap-3 p-4 border-b border-gray-100"><span class="iconify text-gray-400" data-icon="mdi:magnify" data-width="24"></span><input id="searchInput" type="text" placeholder="Search for pet food, toys, accessories..." class="flex-1 text-lg outline-none bg-transparent" oninput="handleSearch(this.value)" autocomplete="off"><button onclick="closeSearch()" class="p-1.5 hover:bg-gray-100 rounded-lg"><span class="iconify text-gray-500" data-icon="mdi:close" data-width="20"></span></button></div>
+    <div id="searchResults" class="max-h-80 overflow-y-auto p-2"><div class="p-4 text-center text-gray-400 text-sm">Start typing to search products...</div></div>
+  </div>
+</div>
+
+<!-- Login -->
+<div id="loginModal" class="modal-bg fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4" onclick="if(event.target===this)closeLogin()">
+  <div class="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
+    <div class="bg-primary-700 p-6 text-center text-white relative"><button onclick="closeLogin()" class="absolute top-4 right-4 p-1 hover:bg-white/20 rounded-full"><span class="iconify" data-icon="mdi:close" data-width="20"></span></button><div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify" data-icon="mdi:paw" data-width="32"></span></div><h3 class="font-heading font-bold text-xl">Welcome Back!</h3><p class="text-white/80 text-sm mt-1">Sign in to your Pet Nest account</p></div>
+    <div class="p-6">
+      <div class="flex bg-gray-100 rounded-xl p-1 mb-6"><button onclick="switchTab('login')" class="ltab flex-1 py-2 text-sm font-semibold rounded-lg bg-white text-primary-700 shadow-sm" data-t="login">Login</button><button onclick="switchTab('signup')" class="ltab flex-1 py-2 text-sm font-semibold rounded-lg text-gray-500" data-t="signup">Sign Up</button></div>
+      <div id="loginForm"><div class="space-y-4"><div><label class="block text-sm font-semibold text-gray-700 mb-1">Email</label><input type="email" placeholder="you@example.com" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1">Password</label><input type="password" placeholder="••••••••" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><button onclick="showToast('Welcome back! 🐾','success')" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl transition-colors">Sign In</button></div></div>
+      <div id="signupForm" class="hidden"><div class="space-y-4"><div><label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label><input type="text" placeholder="John Doe" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1">Email</label><input type="email" placeholder="you@example.com" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1">Password</label><input type="password" placeholder="••••••••" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><button onclick="showToast('Account created! 🎉','success')" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl transition-colors">Create Account</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart -->
+<div id="cartOverlay" class="fixed inset-0 bg-black/50 z-50 hidden" onclick="closeCart()"></div>
+<aside id="cartPanel" class="cart-panel fixed top-0 right-0 w-96 max-w-[90vw] h-full bg-white z-50 shadow-2xl flex flex-col">
+  <div class="p-6 border-b border-gray-100 flex items-center justify-between"><h3 class="font-heading font-bold text-lg flex items-center gap-2"><span class="iconify text-primary-700" data-icon="mdi:cart" data-width="22"></span>Your Cart</h3><button onclick="closeCart()" class="p-2 hover:bg-gray-100 rounded-full"><span class="iconify text-gray-500" data-icon="mdi:close" data-width="22"></span></button></div>
+  <div id="cartItems" class="flex-1 overflow-y-auto p-4"><div id="emptyCart" class="flex flex-col items-center justify-center h-full text-center py-12"><div class="w-24 h-24 bg-primary-50 rounded-full flex items-center justify-center mb-4"><span class="iconify text-primary-300" data-icon="mdi:cart-off" data-width="40"></span></div><p class="font-semibold text-gray-700 mb-1">Your cart is empty</p><p class="text-sm text-gray-400">Add products to get started!</p></div><div id="cartItemsList" class="space-y-3"></div></div>
+  <div id="cartFooter" class="hidden border-t border-gray-100 p-6 bg-gray-50"><div class="flex justify-between mb-2 text-sm"><span class="text-gray-500">Subtotal</span><span id="cartSubtotal" class="font-semibold">$0.00</span></div><div class="flex justify-between mb-4 text-sm"><span class="text-gray-500">Delivery</span><span class="font-semibold text-primary-700">Free</span></div><div class="flex justify-between mb-4 text-lg font-bold"><span>Total</span><span id="cartTotal" class="text-primary-700">$0.00</span></div><button onclick="showToast('Proceeding to checkout...','success')" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:lock-outline" data-width="18"></span>Secure Checkout</button></div>
+</aside>
+
+<!-- Booking -->
+<div id="bookingModal" class="modal-bg fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4" onclick="if(event.target===this)closeBooking()">
+  <div class="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden max-h-[90vh] overflow-y-auto">
+    <div class="bg-primary-700 p-6 text-white relative"><button onclick="closeBooking()" class="absolute top-4 right-4 p-1 hover:bg-white/20 rounded-full"><span class="iconify" data-icon="mdi:close" data-width="20"></span></button><div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-3"><span class="iconify" data-icon="mdi:calendar-check" data-width="28"></span></div><h3 class="font-heading font-bold text-xl">Book Appointment</h3></div>
+    <form onsubmit="event.preventDefault();showToast('Appointment booked! 📅','success');closeBooking();this.reset();" class="p-6 space-y-4">
+      <div><label class="block text-sm font-semibold text-gray-700 mb-1">Pet Name *</label><input type="text" required placeholder="e.g., Buddy" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div>
+      <div><label class="block text-sm font-semibold text-gray-700 mb-1">Pet Type *</label><select required class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white"><option value="">Select</option><option>Dog</option><option>Cat</option><option>Bird</option><option>Rabbit</option><option>Other</option></select></div>
+      <div><label class="block text-sm font-semibold text-gray-700 mb-1">Service *</label><select required class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white"><option value="">Select</option><option>Bath & Blow Dry - $35</option><option>Full Grooming - $65</option><option>Nail Clipping - $15</option><option>Spa Package - $90</option></select></div>
+      <div class="grid grid-cols-2 gap-3"><div><label class="block text-sm font-semibold text-gray-700 mb-1">Date *</label><input type="date" required class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1">Time *</label><select required class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white"><option value="">Select</option><option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option></select></div></div>
+      <div><label class="block text-sm font-semibold text-gray-700 mb-1">Phone</label><input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div>
+      <button type="submit" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:check-circle" data-width="18"></span>Confirm Booking</button>
+    </form>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button onclick="event.stopPropagation();navLB(-1)" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center text-white z-10"><span class="iconify" data-icon="mdi:chevron-left" data-width="28"></span></button>
+  <button onclick="event.stopPropagation();navLB(1)" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center text-white z-10"><span class="iconify" data-icon="mdi:chevron-right" data-width="28"></span></button>
+  <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white z-10"><span class="iconify" data-icon="mdi:close" data-width="36"></span></button>
+  <img id="lbImg" src="" alt="" onclick="event.stopPropagation()">
+  <div id="lbCap" class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white text-sm font-semibold px-5 py-2.5 rounded-full"></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="relative min-h-[92vh] flex items-center overflow-hidden">
+  <div class="absolute inset-0"><img src="https://picsum.photos/seed/petnest-hero-golden/1920/1080.jpg" alt="Happy pets" class="w-full h-full object-cover"><div class="hero-gradient absolute inset-0"></div></div>
+  <div class="absolute top-20 right-10 text-white/10 animate-float hidden lg:block"><span class="iconify" data-icon="mdi:paw" data-width="80"></span></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6 animate-slide-up"><span class="w-2 h-2 bg-golden-400 rounded-full animate-pulse"></span><span class="text-white/90 text-sm font-semibold">🐾 Trusted by 10,000+ Pet Parents</span></div>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight animate-slide-up" style="animation-delay:.1s">Everything Your Pet Needs, <span class="text-golden-400">All in One Place</span></h1>
+      <p class="mt-6 text-lg sm:text-xl text-white/85 max-w-2xl leading-relaxed animate-slide-up" style="animation-delay:.2s">Discover premium pet food, toys, grooming essentials, accessories, and more—all carefully selected to keep your furry friends happy, healthy, and thriving.</p>
+      <div class="mt-8 flex flex-wrap gap-4 animate-slide-up" style="animation-delay:.3s">
+        <a href="#shop" class="inline-flex items-center gap-2 bg-golden-400 hover:bg-golden-500 text-primary-900 font-bold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-golden-400/30 text-base sm:text-lg"><span class="iconify" data-icon="mdi:store" data-width="22"></span>Shop Now</a>
+        <a href="#services" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white font-semibold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 text-base sm:text-lg"><span class="iconify" data-icon="mdi:hand-heart" data-width="22"></span>Our Services</a>
+      </div>
+      <div class="mt-12 flex items-center gap-6 animate-slide-up" style="animation-delay:.4s">
+        <div class="flex -space-x-3"><img src="https://picsum.photos/seed/c1/40/40.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt=""><img src="https://picsum.photos/seed/c2/40/40.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt=""><img src="https://picsum.photos/seed/c3/40/40.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt=""><img src="https://picsum.photos/seed/c4/40/40.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt=""></div>
+        <div><div class="flex gap-0.5 star"><span class="iconify" data-icon="mdi:star" data-width="16"></span><span class="iconify" data-icon="mdi:star" data-width="16"></span><span class="iconify" data-icon="mdi:star" data-width="16"></span><span class="iconify" data-icon="mdi:star" data-width="16"></span><span class="iconify" data-icon="mdi:star" data-width="16"></span></div><p class="text-white/70 text-sm mt-0.5">4.9/5 from 2,500+ reviews</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="py-16 sm:py-20 bg-white paw-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Pet Categories</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 tracking-tight">Shop by Pet <span class="text-primary-700">Type</span></h2></div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6">
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd1"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-amber-600" data-icon="mdi:dog-side" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Dogs</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd1"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-purple-600" data-icon="mdi:cat" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Cats</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd2"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-sky-600" data-icon="mdi:bird" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Birds</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd2"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-blue-600" data-icon="mdi:fish" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Fish</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd3"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-pink-600" data-icon="mdi:rabbit" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Rabbits</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd3"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-orange-600" data-icon="mdi:rodent" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Hamsters</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd4"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-green-600" data-icon="mdi:snake" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Reptiles</span></a>
+      <a href="#shop" class="category-card group bg-white border border-gray-100 hover:border-primary-200 rounded-2xl p-4 sm:p-5 text-center transition-all hover:shadow-lg reveal rd4"><div class="cat-icon w-14 h-14 sm:w-16 sm:h-16 bg-teal-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-teal-600" data-icon="mdi:tortoise" data-width="30"></span></div><span class="font-semibold text-sm text-gray-700 group-hover:text-primary-700">Exotic</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="shop" class="py-16 sm:py-24 bg-gray-50 paw-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 reveal"><span class="inline-block bg-golden-100 text-golden-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Our Products</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 tracking-tight">Featured <span class="text-primary-700">Products</span></h2></div>
+    <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
+      <button onclick="filterProducts('all')" class="filter-btn bg-primary-700 text-white px-5 py-2 rounded-full text-sm font-semibold" data-filter="all">All</button>
+      <button onclick="filterProducts('dog-food')" class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-semibold border border-gray-200" data-filter="dog-food">Dog Food</button>
+      <button onclick="filterProducts('cat-food')" class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-semibold border border-gray-200" data-filter="cat-food">Cat Food</button>
+      <button onclick="filterProducts('accessories')" class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-semibold border border-gray-200" data-filter="accessories">Accessories</button>
+      <button onclick="filterProducts('toys')" class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-semibold border border-gray-200" data-filter="toys">Toys</button>
+      <button onclick="filterProducts('supplies')" class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-semibold border border-gray-200" data-filter="supplies">Supplies</button>
+    </div>
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Why Choose Us</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Why Pet Parents <span class="text-primary-700">Love Us</span></h2></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="reveal rd1 text-center p-6 rounded-2xl bg-gradient-to-b from-primary-50 to-white border border-primary-100 hover:shadow-lg"><div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="iconify text-primary-700" data-icon="mdi:star-circle" data-width="32"></span></div><h3 class="font-heading font-bold text-gray-900 mb-2">Premium Quality</h3><p class="text-sm text-gray-500">Selected from trusted brands</p></div>
+      <div class="reveal rd1 text-center p-6 rounded-2xl bg-gradient-to-b from-golden-50 to-white border border-golden-100 hover:shadow-lg"><div class="w-16 h-16 bg-golden-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="iconify text-golden-600" data-icon="mdi:tag-heart" data-width="32"></span></div><h3 class="font-heading font-bold text-gray-900 mb-2">Affordable Prices</h3><p class="text-sm text-gray-500">Great value, no compromise</p></div>
+      <div class="reveal rd2 text-center p-6 rounded-2xl bg-gradient-to-b from-pink-50 to-white border border-pink-100 hover:shadow-lg"><div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="iconify text-pink-600" data-icon="mdi:heart-pulse" data-width="32"></span></div><h3 class="font-heading font-bold text-gray-900 mb-2">Pet-First Approach</h3><p class="text-sm text-gray-500">Health & happiness first</p></div>
+      <div class="reveal rd3 text-center p-6 rounded-2xl bg-gradient-to-b from-sky-50 to-white border border-sky-100 hover:shadow-lg"><div class="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="iconify text-sky-600" data-icon="mdi:face-agent" data-width="32"></span></div><h3 class="font-heading font-bold text-gray-900 mb-2">Trusted Service</h3><p class="text-sm text-gray-500">Friendly expert support</p></div>
+      <div class="reveal rd4 text-center p-6 rounded-2xl bg-gradient-to-b from-purple-50 to-white border border-purple-100 hover:shadow-lg"><div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="iconify text-purple-600" data-icon="mdi:store-check" data-width="32"></span></div><h3 class="font-heading font-bold text-gray-900 mb-2">One-Stop Shop</h3><p class="text-sm text-gray-500">Everything under one roof</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-16 sm:py-24 bg-cream paw-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="reveal"><div class="relative"><img src="Images/Pet_shop_interior_with_pet_202607170113.jpeg" alt="Inside The Pet Nest" class="rounded-3xl shadow-xl w-full object-cover h-[400px] lg:h-[500px]"><div class="absolute -bottom-6 -right-6 bg-primary-700 text-white rounded-2xl p-5 shadow-lg hidden sm:block"><div class="text-3xl font-heading font-bold">Since</div><div class="text-4xl font-heading font-bold text-golden-400">2021</div></div><div class="absolute -top-4 -left-4 bg-golden-400 text-primary-900 rounded-2xl px-4 py-3 shadow-lg hidden sm:block animate-wiggle"><span class="iconify" data-icon="mdi:paw" data-width="28"></span></div></div></div>
+      <div class="reveal rd2">
+        <span class="inline-block bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">About Us</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 tracking-tight mb-6">Where Every Pet Feels <span class="text-primary-700">at Home</span></h2>
+        <p class="text-gray-600 leading-relaxed mb-4">At The Pet Nest, we believe every pet deserves love, comfort, and the very best care. That's why we offer a carefully curated selection of premium pet food, toys, accessories, grooming essentials, and everyday supplies for dogs, cats, birds, and small pets.</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Our mission is to make pet parenting easier by providing high-quality products, affordable prices, and exceptional customer service. Whether you're welcoming a new companion or caring for a lifelong friend, The Pet Nest is here to help every step of the way—because happy pets make happy homes.</p>
+        <div class="grid grid-cols-2 gap-4 mb-8"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="iconify text-primary-700" data-icon="mdi:check-bold" data-width="20"></span></div><span class="text-sm font-semibold text-gray-700">Trusted Brands</span></div><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="iconify text-primary-700" data-icon="mdi:check-bold" data-width="20"></span></div><span class="text-sm font-semibold text-gray-700">Fast Delivery</span></div><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="iconify text-primary-700" data-icon="mdi:check-bold" data-width="20"></span></div><span class="text-sm font-semibold text-gray-700">Vet Approved</span></div><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="iconify text-primary-700" data-icon="mdi:check-bold" data-width="20"></span></div><span class="text-sm font-semibold text-gray-700">Easy Returns</span></div></div>
+        <div class="flex items-center gap-4"><div class="text-center"><div class="font-heading font-bold text-3xl text-primary-700">10K+</div><div class="text-xs text-gray-500 font-semibold">Happy Pets</div></div><div class="w-px h-12 bg-gray-200"></div><div class="text-center"><div class="font-heading font-bold text-3xl text-primary-700">500+</div><div class="text-xs text-gray-500 font-semibold">Products</div></div><div class="w-px h-12 bg-gray-200"></div><div class="text-center"><div class="font-heading font-bold text-3xl text-primary-700">4.9</div><div class="text-xs text-gray-500 font-semibold">Rating</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-golden-100 text-golden-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Our Services</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Complete Pet Care <span class="text-primary-700">Services</span></h2></div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div class="service-card reveal rd1 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-amber-600" data-icon="mdi:food-drumstick" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Pet Food</h3></div>
+      <div class="service-card reveal rd1 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-pink-600" data-icon="mdi:tshirt-crew" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Accessories</h3></div>
+      <div class="service-card reveal rd2 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-blue-600" data-icon="mdi:toy-brick" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Pet Toys</h3></div>
+      <div class="service-card reveal rd2 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-purple-600" data-icon="mdi:content-cut" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Grooming</h3></div>
+      <div class="service-card reveal rd3 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-red-600" data-icon="mdi:stethoscope" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Veterinary</h3></div>
+      <div class="service-card reveal rd3 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-green-600" data-icon="mdi:hand-heart" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Adoption</h3></div>
+      <div class="service-card reveal rd4 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-indigo-600" data-icon="mdi:school" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Training</h3></div>
+      <div class="service-card reveal rd4 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-teal-600" data-icon="mdi:home-heart" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Boarding</h3></div>
+      <div class="service-card reveal rd5 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-orange-600" data-icon="mdi:truck-delivery" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Delivery</h3></div>
+      <div class="service-card reveal rd5 bg-white border border-gray-100 rounded-2xl p-5 text-center hover:border-primary-200"><div class="w-14 h-14 bg-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="iconify text-cyan-600" data-icon="mdi:cart-check" data-width="28"></span></div><h3 class="font-heading font-bold text-gray-900 mb-1 text-sm sm:text-base">Online Order</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GROOMING ===== -->
+<section id="grooming" class="py-16 sm:py-24 bg-primary-800 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10"><div class="absolute top-10 left-10"><span class="iconify text-white" data-icon="mdi:paw" data-width="60"></span></div><div class="absolute bottom-10 right-10"><span class="iconify text-white" data-icon="mdi:paw" data-width="80"></span></div></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal"><span class="inline-block bg-golden-400/20 text-golden-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Grooming Services</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight mb-6">Pamper Your Pet with <span class="text-golden-400">Professional Grooming</span></h2><p class="text-white/70 leading-relaxed mb-8">Our expert groomers provide top-quality bathing, trimming, nail clipping, and spa treatments.</p><div class="grid grid-cols-2 gap-3 mb-8"><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Bath & Blow Dry</span></div><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Hair Trimming</span></div><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Nail Clipping</span></div><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Ear Cleaning</span></div><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Teeth Brushing</span></div><div class="flex items-center gap-2 text-white/90"><span class="iconify text-golden-400" data-icon="mdi:check-circle" data-width="18"></span><span class="text-sm font-semibold">Spa Treatment</span></div></div><button onclick="openBooking()" class="inline-flex items-center gap-2 bg-golden-400 hover:bg-golden-500 text-primary-900 font-bold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-golden-400/30"><span class="iconify" data-icon="mdi:calendar-check" data-width="22"></span>Book Appointment</button></div>
+      <div class="reveal rd2"><img src="Images/Groomer_brushing_white_poodle_salon_202607170113.jpeg" alt="Pet Grooming" class="rounded-3xl shadow-2xl w-full object-cover h-[350px] lg:h-[450px]"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADOPTION ===== -->
+<section id="adoption" class="py-16 sm:py-24 bg-white paw-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-pink-50 text-pink-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Adoption</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Find Your <span class="text-primary-700">Forever Friend</span></h2><p class="mt-3 text-gray-500 max-w-xl mx-auto">Give a loving home to pets in need.</p></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal rd1 bg-white border border-gray-100 rounded-2xl overflow-hidden group hover:shadow-xl transition-all"><div class="relative overflow-hidden"><img src="Images/Golden_Retriever_looking_at_camera_202607171956.jpeg" alt="Buddy" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"><span class="absolute top-3 left-3 bg-primary-700 text-white text-xs font-bold px-3 py-1 rounded-full">🐕 Dog</span></div><div class="p-5"><h3 class="font-heading font-bold text-lg text-gray-900">Buddy</h3><p class="text-sm text-gray-500 mt-1">Golden Retriever • 2 yrs</p><button onclick="showToast('Inquiry sent for Buddy! 🐾','success')" class="mt-4 w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold py-2.5 rounded-xl text-sm">Adopt Buddy</button></div></div>
+      <div class="reveal rd2 bg-white border border-gray-100 rounded-2xl overflow-hidden group hover:shadow-xl transition-all"><div class="relative overflow-hidden"><img src="Images/Persian_cat_sitting_elegantly_202607171956.jpeg" alt="Luna" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"><span class="absolute top-3 left-3 bg-purple-700 text-white text-xs font-bold px-3 py-1 rounded-full">🐈 Cat</span></div><div class="p-5"><h3 class="font-heading font-bold text-lg text-gray-900">Luna</h3><p class="text-sm text-gray-500 mt-1">Persian Cat • 1 yr</p><button onclick="showToast('Inquiry sent for Luna! 🐾','success')" class="mt-4 w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-semibold py-2.5 rounded-xl text-sm">Adopt Luna</button></div></div>
+      <div class="reveal rd3 bg-white border border-gray-100 rounded-2xl overflow-hidden group hover:shadow-xl transition-all"><div class="relative overflow-hidden"><img src="Images/Rabbit_sitting_with_floppy_ears_202607171956.jpeg" alt="Cinnamon" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"><span class="absolute top-3 left-3 bg-pink-700 text-white text-xs font-bold px-3 py-1 rounded-full">🐇 Rabbit</span></div><div class="p-5"><h3 class="font-heading font-bold text-lg text-gray-900">Cinnamon</h3><p class="text-sm text-gray-500 mt-1">Holland Lop • 8 mo</p><button onclick="showToast('Inquiry sent for Cinnamon! 🐾','success')" class="mt-4 w-full bg-pink-50 hover:bg-pink-100 text-pink-700 font-semibold py-2.5 rounded-xl text-sm">Adopt Cinnamon</button></div></div>
+      <div class="reveal rd4 bg-white border border-gray-100 rounded-2xl overflow-hidden group hover:shadow-xl transition-all"><div class="relative overflow-hidden"><img src="Images/Beagle_sitting_looking_camera_202607171956.jpeg" alt="Max" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"><span class="absolute top-3 left-3 bg-primary-700 text-white text-xs font-bold px-3 py-1 rounded-full">🐕 Dog</span></div><div class="p-5"><h3 class="font-heading font-bold text-lg text-gray-900">Max</h3><p class="text-sm text-gray-500 mt-1">Beagle • 3 yrs</p><button onclick="showToast('Inquiry sent for Max! 🐾','success')" class="mt-4 w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold py-2.5 rounded-xl text-sm">Adopt Max</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="py-16 sm:py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Gallery</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Life at <span class="text-primary-700">The Pet Nest</span></h2><p class="mt-3 text-gray-500 max-w-xl mx-auto">Step inside our world—see our store, team, and the pets we love</p></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div class="gallery-item reveal rd1 sm:col-span-2 lg:col-span-2 h-64 sm:h-72 lg:h-80" onclick="openLB(0)"><img src="Images/Pet_shop_storefront__The_Pet_202607170113.jpeg" alt="Storefront" loading="lazy"><div class="gallery-overlay"><span>🏪 Our Storefront</span></div></div>
+      <div class="gallery-item reveal rd2 h-64 sm:h-72 lg:h-80" onclick="openLB(1)"><img src="Images/Checkout_counter_inside_Pet_Nest_202607170113.jpeg" alt="Checkout" loading="lazy"><div class="gallery-overlay"><span>🛒 Checkout Counter</span></div></div>
+      <div class="gallery-item reveal rd2 h-56 sm:h-64" onclick="openLB(2)"><img src="Images/Pet_food_aisle_in_store_202607170113.jpeg" alt="Food Aisle" loading="lazy"><div class="gallery-overlay"><span>🥫 Pet Food Aisle</span></div></div>
+      <div class="gallery-item reveal rd3 h-56 sm:h-64" onclick="openLB(3)"><img src="Images/Pet_store_product_display_organized_202607170113.jpeg" alt="Products" loading="lazy"><div class="gallery-overlay"><span>🛍️ Product Display</span></div></div>
+      <div class="gallery-item reveal rd3 h-56 sm:h-64" onclick="openLB(4)"><img src="images/Pet_shop_interior_with_pet_202607170113.jpeg" alt="Interior" loading="lazy"><div class="gallery-overlay"><span>🏠 Shop Interior</span></div></div>
+      <div class="gallery-item reveal rd3 sm:col-span-2 h-56 sm:h-64 lg:h-72" onclick="openLB(5)"><img src="Images/Groomer_brushing_white_poodle_salon_202607170113.jpeg" alt="Grooming" loading="lazy"><div class="gallery-overlay"><span>✂️ Grooming Salon</span></div></div>
+      <div class="gallery-item reveal rd4 h-56 sm:h-64 lg:h-72" onclick="openLB(6)"><img src="Images/Employees_assisting_customers_wi…_202607170113.jpeg" alt="Team" loading="lazy"><div class="gallery-overlay"><span>👩‍💼 Our Friendly Team</span></div></div>
+      <div class="gallery-item reveal rd4 sm:col-span-2 h-64 sm:h-72" onclick="openLB(7)"><img src="Images/Dogs_and_cats_playing_toys_202607170113.jpeg" alt="Play Zone" loading="lazy"><div class="gallery-overlay"><span>🎾 Pet Play Zone</span></div></div>
+      <div class="gallery-item reveal rd5 h-64 sm:h-72" onclick="openLB(8)"><img src="Images/Pets_together_in_pet_store_202607170113.jpeg" alt="Pets" loading="lazy"><div class="gallery-overlay"><span>🐾 Our Adorable Pets</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-golden-100 text-golden-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Testimonials</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">What Pet Parents <span class="text-primary-700">Say</span></h2></div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="testimonial-card reveal rd1 bg-white rounded-2xl p-6 border border-gray-100"><div class="flex gap-1 star mb-3"><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span></div><p class="text-gray-600 text-sm leading-relaxed mb-4">"The Pet Nest has become my go-to store for all my dog's needs. Great quality products, fast delivery, and amazing customer service!"</p><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/emily/48/48.jpg" alt="Emily R." class="w-10 h-10 rounded-full object-cover"><div><div class="font-semibold text-sm text-gray-900">Emily R.</div><div class="text-xs text-gray-400">Dog Parent</div></div></div></div>
+      <div class="testimonial-card reveal rd2 bg-white rounded-2xl p-6 border border-gray-100"><div class="flex gap-1 star mb-3"><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span></div><p class="text-gray-600 text-sm leading-relaxed mb-4">"I ordered a cat tree and premium food, and both exceeded my expectations. My cat absolutely loves them!"</p><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/michael/48/48.jpg" alt="Michael T." class="w-10 h-10 rounded-full object-cover"><div><div class="font-semibold text-sm text-gray-900">Michael T.</div><div class="text-xs text-gray-400">Cat Parent</div></div></div></div>
+      <div class="testimonial-card reveal rd3 bg-white rounded-2xl p-6 border border-gray-100"><div class="flex gap-1 star mb-3"><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span></div><p class="text-gray-600 text-sm leading-relaxed mb-4">"Excellent prices, wide selection, and easy ordering. Everything arrived quickly and exactly as described."</p><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/sophia/48/48.jpg" alt="Sophia L." class="w-10 h-10 rounded-full object-cover"><div><div class="font-semibold text-sm text-gray-900">Sophia L.</div><div class="text-xs text-gray-400">Multi-Pet Parent</div></div></div></div>
+      <div class="testimonial-card reveal rd3 bg-white rounded-2xl p-6 border border-gray-100"><div class="flex gap-1 star mb-3"><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span></div><p class="text-gray-600 text-sm leading-relaxed mb-4">"The grooming supplies are top quality, and the staff was incredibly helpful recommending products for my puppy."</p><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/james/48/48.jpg" alt="James W." class="w-10 h-10 rounded-full object-cover"><div><div class="font-semibold text-sm text-gray-900">James W.</div><div class="text-xs text-gray-400">Puppy Parent</div></div></div></div>
+      <div class="testimonial-card reveal rd4 bg-white rounded-2xl p-6 border border-gray-100 md:col-span-2 lg:col-span-1"><div class="flex gap-1 star mb-3"><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span><span class="iconify" data-icon="mdi:star" data-width="18"></span></div><p class="text-gray-600 text-sm leading-relaxed mb-4">"Fantastic shopping experience from start to finish. The Pet Nest truly cares about pets and their owners. Highly recommended!"</p><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/olivia/48/48.jpg" alt="Olivia M." class="w-10 h-10 rounded-full object-cover"><div><div class="font-semibold text-sm text-gray-900">Olivia M.</div><div class="text-xs text-gray-400">Dog & Cat Parent</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section id="blog" class="py-16 sm:py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Blog</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Pet Care <span class="text-primary-700">Tips & Stories</span></h2></div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <article class="reveal rd1 group"><div class="overflow-hidden rounded-2xl mb-4"><img src="Images/Golden_Retriever_with_dog_food_202607172012.jpeg" alt="" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 text-xs text-gray-400 mb-3"><span class="bg-primary-50 text-primary-700 font-bold px-2 py-1 rounded-md">Nutrition</span><span>Jan 15, 2025</span></div><h3 class="font-heading font-bold text-lg text-gray-900 group-hover:text-primary-700 transition-colors mb-2">10 Essential Nutrients Your Dog Needs</h3><p class="text-sm text-gray-500 line-clamp-2">Discover key nutrients that keep your furry friend healthy and energetic.</p><a href="#" class="inline-flex items-center gap-1 text-primary-700 font-semibold text-sm mt-3 hover:gap-2 transition-all">Read More <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a></article>
+      <article class="reveal rd2 group"><div class="overflow-hidden rounded-2xl mb-4"><img src="Images/Fluffy_cat_scratching_post_inside_202607172012.jpeg" alt="" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 text-xs text-gray-400 mb-3"><span class="bg-purple-50 text-purple-700 font-bold px-2 py-1 rounded-md">Cat Care</span><span>Jan 10, 2025</span></div><h3 class="font-heading font-bold text-lg text-gray-900 group-hover:text-primary-700 transition-colors mb-2">Why Your Cat Needs a Scratching Post</h3><p class="text-sm text-gray-500 line-clamp-2">Understanding your cat's instincts and choosing the right scratching post.</p><a href="#" class="inline-flex items-center gap-1 text-primary-700 font-semibold text-sm mt-3 hover:gap-2 transition-all">Read More <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a></article>
+      <article class="reveal rd3 group"><div class="overflow-hidden rounded-2xl mb-4"><img src="Images/Golden_Retriever_Persian_cat_gro…_202607172012.jpeg" alt="" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 text-xs text-gray-400 mb-3"><span class="bg-golden-50 text-golden-700 font-bold px-2 py-1 rounded-md">Grooming</span><span>Jan 5, 2025</span></div><h3 class="font-heading font-bold text-lg text-gray-900 group-hover:text-primary-700 transition-colors mb-2">At-Home Pet Grooming Guide for Beginners</h3><p class="text-sm text-gray-500 line-clamp-2">Step-by-step tips to keep your pet clean between professional appointments.</p><a href="#" class="inline-flex items-center gap-1 text-primary-700 font-semibold text-sm mt-3 hover:gap-2 transition-all">Read More <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">FAQ</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Frequently Asked <span class="text-primary-700">Questions</span></h2></div>
+    <div class="space-y-3 reveal">
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">What types of pets do you cater to?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">We cater to dogs, cats, birds, fish, rabbits, hamsters, reptiles, and exotic pets with food, toys, accessories, and health supplies for all.</p></div></div>
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">Do you offer home delivery?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">Yes! Free delivery on orders over $50. Flat $5.99 fee for orders under $50. We deliver across Austin within 1-3 business days.</p></div></div>
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">How can I book a grooming appointment?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">Book through our website, call +1 (555) 247-8916, or WhatsApp. Walk-ins welcome but appointments recommended.</p></div></div>
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">What payment methods do you accept?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">We accept credit/debit cards, PayPal, Apple Pay, Google Pay, and Cash on Delivery (COD).</p></div></div>
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">Can I return or exchange products?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">Yes! 30-day return/exchange policy. Products must be in original packaging, unused. Refunds within 5-7 business days.</p></div></div>
+      <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50"><span class="font-semibold text-gray-900 pr-4">How does pet adoption work?</span><span class="iconify text-primary-700 flex-shrink-0 faq-icon transition-transform" data-icon="mdi:chevron-down" data-width="24"></span></button><div class="faq-answer px-5 pb-5"><p class="text-sm text-gray-600 leading-relaxed">Browse available pets, fill out an application, meet the pet, and complete adoption paperwork. Our team guides you every step.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="py-16 sm:py-20 bg-primary-700 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5"><div class="absolute top-5 left-10"><span class="iconify text-white" data-icon="mdi:paw" data-width="100"></span></div></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+    <span class="iconify text-golden-400 mb-4" data-icon="mdi:email-heart-outline" data-width="48"></span>
+    <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight mb-3">Stay in the Loop</h2>
+    <p class="text-white/70 mb-8 max-w-lg mx-auto">Subscribe for exclusive deals, pet care tips, and new product alerts. Get 10% off your first order!</p>
+    <form onsubmit="event.preventDefault();showToast('Check your email for a 10% discount code! 🎉','success');this.reset();" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+      <input type="email" placeholder="Enter your email address" required class="flex-1 px-5 py-3.5 rounded-xl border-0 text-sm focus:ring-2 focus:ring-golden-400">
+      <button type="submit" class="bg-golden-400 hover:bg-golden-500 text-primary-900 font-bold px-8 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap">Subscribe 🐾</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-16 sm:py-24 bg-white paw-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal"><span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Contact Us</span><h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900">Get in <span class="text-primary-700">Touch</span></h2></div>
+    <div class="grid lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-6 reveal">
+        <div class="bg-primary-50 rounded-2xl p-6"><h3 class="font-heading font-bold text-lg text-primary-800 mb-4">Visit Our Store</h3><div class="space-y-4"><div class="flex items-start gap-3"><span class="iconify text-primary-700 mt-0.5 flex-shrink-0" data-icon="mdi:map-marker" data-width="20"></span><div><p class="text-sm font-semibold text-gray-900">245 Maple Avenue</p><p class="text-sm text-gray-500">Austin, Texas, USA</p></div></div><div class="flex items-start gap-3"><span class="iconify text-primary-700 mt-0.5 flex-shrink-0" data-icon="mdi:phone" data-width="20"></span><div><a href="tel:+15552478916" class="text-sm font-semibold text-gray-900 hover:text-primary-700">+1 (555) 247-8916</a></div></div><div class="flex items-start gap-3"><span class="iconify text-primary-700 mt-0.5 flex-shrink-0" data-icon="mdi:whatsapp" data-width="20"></span><div><a href="https://wa.me/15552478910" target="_blank" class="text-sm font-semibold text-gray-900 hover:text-primary-700">+1 (555) 247-8910</a></div></div><div class="flex items-start gap-3"><span class="iconify text-primary-700 mt-0.5 flex-shrink-0" data-icon="mdi:email-outline" data-width="20"></span><div><a href="mailto:hello@thepetnest.com" class="text-sm font-semibold text-gray-900 hover:text-primary-700">hello@thepetnest.com</a></div></div></div></div>
+        <div class="bg-golden-50 rounded-2xl p-6"><h3 class="font-heading font-bold text-lg text-golden-800 mb-4 flex items-center gap-2"><span class="iconify" data-icon="mdi:clock-outline" data-width="20"></span>Business Hours</h3><div class="space-y-2 text-sm"><div class="flex justify-between"><span class="text-gray-600">Mon - Fri</span><span class="font-semibold text-gray-900">9:00 AM – 8:00 PM</span></div><div class="flex justify-between"><span class="text-gray-600">Saturday</span><span class="font-semibold text-gray-900">10:00 AM – 9:00 PM</span></div><div class="flex justify-between"><span class="text-gray-600">Sunday</span><span class="font-semibold text-gray-900">10:00 AM – 9:00 PM</span></div></div></div>
+      </div>
+      <div class="lg:col-span-3 reveal rd2">
+        <form onsubmit="event.preventDefault();showToast('Message sent! We\'ll reply soon. 📬','success');this.reset();" class="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div class="grid sm:grid-cols-2 gap-4 mb-4"><div><label class="block text-sm font-semibold text-gray-700 mb-1.5">First Name *</label><input type="text" required placeholder="John" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1.5">Last Name *</label><input type="text" required placeholder="Doe" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div></div>
+          <div class="mb-4"><label class="block text-sm font-semibold text-gray-700 mb-1.5">Email *</label><input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm"></div>
+          <div class="mb-4"><label class="block text-sm font-semibold text-gray-700 mb-1.5">Subject</label><select class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white"><option value="">Select a topic</option><option>Product Inquiry</option><option>Grooming Appointment</option><option>Pet Adoption</option><option>Order Issue</option><option>General Feedback</option></select></div>
+          <div class="mb-6"><label class="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label><textarea required rows="4" placeholder="How can we help?" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm resize-none"></textarea></div>
+          <button type="submit" class="w-full sm:w-auto bg-primary-700 hover:bg-primary-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"><span class="iconify" data-icon="mdi:send" data-width="18"></span>Send Message</button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-10 reveal"><div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100"><iframe src="https://maps.google.com/maps?q=245+Maple+Avenue,+Austin,+TX&output=embed" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" title="The Pet Nest Location"></iframe></div></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div><div class="flex items-center gap-2 mb-4"><div class="w-10 h-10 bg-primary-700 rounded-xl flex items-center justify-center"><span class="iconify text-white" data-icon="mdi:paw" data-width="22"></span></div><span class="font-heading font-bold text-xl">The Pet Nest</span></div><p class="text-gray-400 text-sm leading-relaxed mb-4">Premium Care for Precious Companions since 2021.</p><div class="flex gap-3"><a href="https://facebook.com/ThePetNestOfficial" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-primary-700 rounded-lg flex items-center justify-center transition-colors"><span class="iconify" data-icon="mdi:facebook" data-width="18"></span></a><a href="https://instagram.com/thepetnest" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-primary-700 rounded-lg flex items-center justify-center transition-colors"><span class="iconify" data-icon="mdi:instagram" data-width="18"></span></a><a href="https://tiktok.com/@thepetnest" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-primary-700 rounded-lg flex items-center justify-center transition-colors"><span class="iconify" data-icon="ic:baseline-tiktok" data-width="18"></span></a><a href="https://youtube.com/@ThePetNest" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-primary-700 rounded-lg flex items-center justify-center transition-colors"><span class="iconify" data-icon="mdi:youtube" data-width="18"></span></a><a href="https://linkedin.com/company/thepetnest" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-primary-700 rounded-lg flex items-center justify-center transition-colors"><span class="iconify" data-icon="mdi:linkedin" data-width="18"></span></a></div></div>
+      <div><h4 class="font-heading font-bold text-sm uppercase tracking-wider mb-4">Quick Links</h4><ul class="space-y-2.5"><li><a href="#home" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Home</a></li><li><a href="#about" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">About</a></li><li><a href="#shop" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Shop</a></li><li><a href="#services" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Services</a></li><li><a href="#gallery" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Gallery</a></li><li><a href="#contact" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Contact</a></li></ul></div>
+      <div><h4 class="font-heading font-bold text-sm uppercase tracking-wider mb-4">Customer Care</h4><ul class="space-y-2.5"><li><a href="#faq" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">FAQ</a></li><li><a href="#" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Order Tracking</a></li><li><a href="#" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Shipping Policy</a></li><li><a href="#" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Returns & Refunds</a></li><li><a href="#" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-golden-400 text-sm transition-colors">Terms & Conditions</a></li></ul></div>
+      <div><h4 class="font-heading font-bold text-sm uppercase tracking-wider mb-4">Contact</h4><ul class="space-y-3"><li class="flex items-start gap-3 text-sm text-gray-400"><span class="iconify text-primary-500 mt-0.5 flex-shrink-0" data-icon="mdi:map-marker" data-width="16"></span>245 Maple Avenue, Austin, TX</li><li class="flex items-center gap-3 text-sm text-gray-400"><span class="iconify text-primary-500 flex-shrink-0" data-icon="mdi:phone" data-width="16"></span><a href="tel:+15552478916" class="hover:text-golden-400 transition-colors">+1 (555) 247-8916</a></li><li class="flex items-center gap-3 text-sm text-gray-400"><span class="iconify text-primary-500 flex-shrink-0" data-icon="mdi:email-outline" data-width="16"></span><a href="mailto:hello@thepetnest.com" class="hover:text-golden-400 transition-colors">hello@thepetnest.com</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-gray-500 text-sm text-center sm:text-left">&copy; 2025 The Pet Nest. All rights reserved. Made with <span class="text-red-400">❤</span> by Mio Sakura</p><div class="flex items-center gap-4"><span class="iconify text-gray-500" data-icon="mdi:credit-card-outline" data-width="28"></span><span class="iconify text-gray-500" data-icon="mdi:apple" data-width="24"></span><span class="iconify text-gray-500" data-icon="mdi:cash" data-width="24"></span></div></div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/15552478910" target="_blank" class="whatsapp-btn fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110"><span class="iconify text-white" data-icon="mdi:whatsapp" data-width="30"></span></a>
+
+<!-- Custom JS -->
+<script src="script.js"></script>
+</body>
+</html>
